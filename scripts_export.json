@@ -1,0 +1,353 @@
+[
+    {
+        ".id": "*B29",
+        "name": "jun/01/2025-|-10:22:27-|-Ptjx-|-2000-|-123.123.123.138-|-2C:D0:66:1F:DA:44-|-12h-|-2k-|-vc-957-05.19.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/01/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B2A",
+        "name": "jun/01/2025-|-10:54:18-|-P37vh-|-5000-|-123.123.123.61-|-0A:7B:F3:83:93:7C-|-3d-|-5k3h-|-vc-567-02.24.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/01/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B2B",
+        "name": "jun/01/2025-|-17:10:48-|-P7f6n-|-10000-|-123.123.123.178-|-06:1D:79:38:09:85-|-6d5h-|-10k1m-|-vc-175-02.24.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/01/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B2C",
+        "name": "jun/01/2025-|-17:55:21-|-Px5t-|-2000-|-123.123.123.89-|-00:08:22:B6:20:FC-|-12h-|-2k-|-vc-957-05.19.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/01/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B2D",
+        "name": "jun/01/2025-|-21:05:57-|-P7yx-|-2000-|-123.123.123.132-|-56:0F:DF:25:2F:66-|-12h-|-2k-|-vc-957-05.19.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/01/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B2E",
+        "name": "jun/02/2025-|-06:50:29-|-P32x6-|-5000-|-123.123.123.118-|-9C:6B:72:FD:8D:C7-|-3d-|-5k3h-|-vc-842-03.28.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/02/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B2F",
+        "name": "jun/02/2025-|-12:03:36-|-Phty-|-2000-|-123.123.123.138-|-2C:D0:66:1F:DA:44-|-12h-|-2k-|-vc-957-05.19.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/02/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B30",
+        "name": "jun/02/2025-|-12:24:53-|-P9z2-|-2000-|-123.123.123.101-|-0E:6A:97:CD:D6:59-|-12h-|-2k-|-vc-957-05.19.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/02/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B31",
+        "name": "jun/02/2025-|-15:43:43-|-P7xxk-|-10000-|-123.123.123.97-|-82:75:D3:FE:A6:5B-|-6d5h-|-10k1m-|-vc-175-02.24.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/02/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B32",
+        "name": "jun/02/2025-|-17:48:54-|-P4yt-|-2000-|-123.123.123.89-|-00:08:22:B6:20:FC-|-12h-|-2k-|-vc-123-02.24.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/02/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B33",
+        "name": "jun/02/2025-|-20:30:47-|-Pfgr-|-2000-|-123.123.123.113-|-26:6D:9C:70:CD:7F-|-12h-|-2k-|-vc-123-02.24.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/02/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B34",
+        "name": "jun/02/2025-|-22:16:10-|-Pric-|-2000-|-123.123.123.117-|-00:08:22:34:E1:3F-|-12h-|-2k-|-vc-123-02.24.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/02/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B35",
+        "name": "jun/03/2025-|-11:54:07-|-P3wtv-|-5000-|-123.123.123.101-|-0E:6A:97:CD:D6:59-|-3d-|-5k3h-|-vc-842-03.28.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/03/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B36",
+        "name": "jun/03/2025-|-17:39:38-|-P7bzj-|-10000-|-123.123.123.44-|-F2:87:AA:2B:B1:11-|-6d5h-|-10k1m-|-vc-175-02.24.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/03/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B37",
+        "name": "jun/03/2025-|-20:20:21-|-Qwcc-|-2000-|-123.123.123.148-|-00:08:22:3E:24:0C-|-12h-|-2k-|-vc-460-02.27.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/03/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B38",
+        "name": "jun/03/2025-|-20:39:32-|-Pa4f-|-2000-|-123.123.123.113-|-26:6D:9C:70:CD:7F-|-12h-|-2k-|-vc-957-05.19.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/03/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B39",
+        "name": "jun/03/2025-|-20:39:50-|-P7xf-|-2000-|-123.123.123.149-|-8C:AA:CE:2D:AD:64-|-12h-|-2k-|-vc-957-05.19.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/03/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B3A",
+        "name": "jun/04/2025-|-13:05:03-|-Pa2t-|-2000-|-123.123.123.138-|-2C:D0:66:1F:DA:44-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/04/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B3B",
+        "name": "jun/05/2025-|-11:04:54-|-P37s3-|-5000-|-123.123.123.118-|-9C:6B:72:FD:8D:C7-|-3d-|-5k3h-|-vc-842-03.28.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/05/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B3C",
+        "name": "jun/05/2025-|-12:33:43-|-Phgg-|-2000-|-123.123.123.132-|-56:0F:DF:25:2F:66-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/05/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B3D",
+        "name": "jun/05/2025-|-12:37:52-|-Phz5-|-2000-|-123.123.123.138-|-2C:D0:66:1F:DA:44-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/05/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B3E",
+        "name": "jun/05/2025-|-13:14:53-|-P3865-|-5000-|-123.123.123.41-|-FE:5E:F1:74:ED:21-|-3d-|-5k3h-|-vc-842-03.28.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/05/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B3F",
+        "name": "jun/05/2025-|-17:48:19-|-P5ke-|-2000-|-123.123.123.183-|-00:08:22:E8:66:FC-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/05/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B40",
+        "name": "jun/05/2025-|-18:55:57-|-P7ej4-|-10000-|-123.123.123.116-|-B0:B5:C3:90:85:E7-|-6d5h-|-10k1m-|-vc-175-02.24.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/05/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B41",
+        "name": "jun/05/2025-|-19:14:22-|-P7b4f-|-10000-|-123.123.123.26-|-3E:74:00:42:75:70-|-6d5h-|-10k1m-|-vc-175-02.24.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/05/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B42",
+        "name": "jun/05/2025-|-22:03:19-|-P3j6a-|-5000-|-123.123.123.126-|-7A:C1:D7:D8:9B:66-|-3d-|-5k3h-|-vc-842-03.28.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/05/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B43",
+        "name": "jun/06/2025-|-00:38:33-|-Pprd-|-2000-|-123.123.123.132-|-56:0F:DF:25:2F:66-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B44",
+        "name": "jun/06/2025-|-00:42:50-|-Pkx9-|-2000-|-123.123.123.119-|-C0:57:03:8B:AA:D0-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B45",
+        "name": "jun/06/2025-|-00:50:27-|-P4ck-|-2000-|-123.123.123.186-|-7E:58:18:40:06:14-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B46",
+        "name": "jun/06/2025-|-07:16:37-|-P3epf-|-5000-|-123.123.123.61-|-0A:7B:F3:83:93:7C-|-3d-|-5k3h-|-vc-842-03.28.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B47",
+        "name": "jun/06/2025-|-12:22:12-|-Paeh-|-2000-|-123.123.123.138-|-2C:D0:66:1F:DA:44-|-12h-|-2k-|-vc-255-03.28.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B48",
+        "name": "jun/06/2025-|-12:44:08-|-P5fv-|-2000-|-123.123.123.101-|-0E:6A:97:CD:D6:59-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B49",
+        "name": "jun/06/2025-|-13:52:52-|-Pydh-|-2000-|-123.123.123.186-|-7E:58:18:40:06:14-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B4A",
+        "name": "jun/06/2025-|-16:05:30-|-Pu74-|-2000-|-123.123.123.185-|-00:08:22:FC:D9:4B-|-12h-|-2k-|-vc-957-05.19.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B4B",
+        "name": "jun/06/2025-|-17:22:12-|-P63cm-|-10000-|-123.123.123.166-|-86:51:95:90:CA:23-|-6d5h-|-10k1m-|-vc-498-03.28.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B4C",
+        "name": "jun/06/2025-|-18:30:11-|-Pznv-|-2000-|-123.123.123.132-|-56:0F:DF:25:2F:66-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*B4D",
+        "name": "jun/06/2025-|-20:09:04-|-Phuy-|-2000-|-123.123.123.194-|-FA:0F:45:A3:27:3B-|-12h-|-2k-|-vc-143-05.20.25-",
+        "owner": "jun2025",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "jun/06/2025",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*FF3",
+        "name": "2026-03-02-|-16:44:07-|-P3c27-|-0-|-172.20.123.107-|-7C:2A:DB:BC:C2:D4-|-3h-|-5k-|-vc-528-02.21.26-",
+        "owner": "2026-03",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "2026-03-02",
+        "dont-require-permissions": "false"
+    },
+    {
+        ".id": "*FF4",
+        "name": "2026-03-03-|-16:32:56-|-P353s-|-5000-|-172.20.123.188-|-DE:3A:C2:55:95:36-|-3d-|-5k-|-vc-528-02.21.26-",
+        "owner": "2026-03",
+        "policy": "ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon",
+        "run-count": "0",
+        "source": "2026-03-03",
+        "dont-require-permissions": "false"
+    }
+]

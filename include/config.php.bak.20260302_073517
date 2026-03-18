@@ -1,0 +1,7 @@
+<?php 
+if(substr($_SERVER["REQUEST_URI"], -10) == "config.php"){header("Location:./");}; 
+$data['mikhmon'] = array ('1'=>'mikhmon<|<admin','mikhmon>|>aWNlbA==');
+
+$data['XD-net'] = array ('1'=>'XD-net!163.53.186.250:350','XD-net@|@telebot','XD-net#|#rJaenZOhrA==','XD-net%XD-net','XD-net^xdnet.id','XD-net&Rp','XD-net*10','XD-net(1','XD-net)','XD-net=disable','XD-net@!@enable');
+$data['xdtgh'] = array ('1'=>'xdtgh!149.28.132.86:351','xdtgh@|@thehanifz','xdtgh#|#jJmXoqCdnaOscWg=','xdtgh%XD-net','xdtgh^xdnet.id','xdtgh&Rp','xdtgh*10','xdtgh(1','xdtgh)','xdtgh=disable','xdtgh@!@disable'); 
+$data['ccc'] = array ('1'=>'ccc!192.168.100.1:999','ccc@|@telebot','ccc#|#rJaenZOhrA==','ccc%ok','ccc^xdnet.id','ccc&Rp','ccc*10','ccc(1','ccc)','ccc=10','ccc@!@disable');

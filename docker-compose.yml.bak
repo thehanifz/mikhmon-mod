@@ -1,0 +1,62 @@
+name: mikhmon-v3
+services:
+    mikhmon:
+        cpu_shares: 90
+        command:
+            - php
+            - -S
+            - 0.0.0.0:8000
+            - -t
+            - /var/www
+        container_name: mikhmon
+        deploy:
+            resources:
+                limits:
+                    memory: "2147483648"
+        hostname: mikhmon
+        image: php:7.4-cli
+        # ── Inject secret dari .env ──────────────────────
+        env_file:
+            - .env
+        environment:
+            - MIKHMON_SECRET=${MIKHMON_SECRET}
+            - MIKHMON_ENV=${MIKHMON_ENV:-production}
+            - MIKHMON_SESSION_NAME=${MIKHMON_SESSION_NAME:-mkhm_sess}
+        # ────────────────────────────────────────────────
+        networks:
+            mikhmon_network: null
+        ports:
+            - mode: ingress
+              target: 8000
+              published: "999"
+              protocol: tcp
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - type: bind
+              source: /root/main-app/mikhmon-v3
+              target: /var/www
+              bind:
+                create_host_path: true
+        working_dir: /var/www
+networks:
+    default:
+        name: mikhmon-v3_default
+    mikhmon_network:
+        name: mikhmon-v3_mikhmon_network
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.27.0.0/24
+x-casaos:
+    author: self
+    category: self
+    hostname: mikhmon.thehanifz.com
+    icon: ""
+    index: /
+    is_uncontrolled: false
+    port_map: ""
+    scheme: https
+    title:
+        custom: 'mikhmon online '

@@ -1,0 +1,23 @@
+# Mikhmon V3 — .gitignore
+
+# ─── WAJIB TIDAK DI-COMMIT ───────────────────
+.env
+include/config.php
+.ratelimit
+
+# ─── Docker ──────────────────────────────────
+docker-compose.override.yml
+
+# ─── OS & Editor ─────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ─── Logs ────────────────────────────────────
+*.log
+/logs/
+
+# ─── Upload temp ─────────────────────────────
+img/upload_*.png
+img/upload_*.jpg

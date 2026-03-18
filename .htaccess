@@ -1,0 +1,37 @@
+# Mikhmon V3 — Apache Security Rules
+# (Untuk nginx, rules sudah ada di nginx.conf)
+
+# Blok akses langsung ke file sensitif
+<FilesMatch "^(\.env|\.gitignore|\.ratelimit|config\.php|readcfg\.php|security\.php|routeros_api\.class\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Blok directory listing
+Options -Indexes
+
+# Blok akses ke folder lib, include, process
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Blok akses langsung ke folder sensitif
+    RewriteRule ^(lib|include|process)/.*\.php$ - [F,L]
+
+    # Redirect ke HTTPS jika tersedia
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Blok akses ke file backup
+<FilesMatch "\.(bak|backup|old|orig|save|sql|log)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
