@@ -95,7 +95,7 @@ date_default_timezone_set($_SESSION['timezone']);
 		$getsprice = explode(",", $ponlogin)[4];
 		$getlock = explode(",", $ponlogin)[6];
 		$_SESSION['ubp'] = $profile;
-		$commt = $user . "-" . rand(100, 999) . "-" . date("m.d.y") . "-" . $adcomment;
+		$commt = $user . "-" . rand(100, 999) . "-" . date("Y-m-d") . "-" . $adcomment; // v7: yyyy-mm-dd
 		$gentemp = $commt . "|~" . $profile . "~" . $getvalid . "~" . $getprice . "!".$getsprice."~" . $timelimit . "~" . $datalimit . "~" . $getlock;
 		$gen = '<?php $genu="'.encrypt($gentemp).'";?>';
 		$temp = './voucher/temp.php';

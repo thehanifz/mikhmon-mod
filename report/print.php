@@ -30,18 +30,24 @@ if (!isset($_SESSION["mikhmon"])) {
   include('../lang/'.$langid.'.php');
 
   // load config
+  include_once('../lib/routeros_api.class.php');
+  include_once('../lib/formatbytesbites.php');
+  include('../include/security.php');
   include('../include/config.php');
   include('../include/readcfg.php');
 
   // routeros api
-  include_once('../lib/routeros_api.class.php');
-  include_once('../lib/formatbytesbites.php');
   $API = new RouterosAPI();
   $API->debug = false;
 
 	$idhr = $_GET['idhr'];
 	$idbl = $_GET['idbl'];
-	$idbl2 = explode("/",$idhr)[0].explode("/",$idhr)[2];
+	// idbl2: v7=2026-03, v6=mar2026
+	if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $idhr)) {
+		$idbl2 = substr($idhr, 0, 7);
+	} else {
+		$idbl2 = explode("/", $idhr)[0] . explode("/", $idhr)[2];
+	}
 	if ($idhr != ""){
 		$_SESSION['report'] = "&idhr=".$idhr;
 	} elseif ($idbl != ""){
@@ -67,32 +73,20 @@ if (!isset($_SESSION["mikhmon"])) {
 
 	if (isset($remdata)) {
 		if (strlen($idhr) > "0") {
-			if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-				$API->write('/system/script/print', false);
-				$API->write('?source=' . $idhr . '', false);
-				$API->write('=.proplist=.id');
-				$ARREMD = $API->read();
-				for ($i = 0; $i < count($ARREMD); $i++) {
-					$API->write('/system/script/remove', false);
-					$API->write('=.id=' . $ARREMD[$i]['.id']);
-					$READ = $API->read();
-
-				}
+			$API->write('/system/script/print', false);
+			$API->write('?source=' . $idhr, false);
+			$API->write('=.proplist=.id');
+			$ARREMD = $API->read();
+			for ($i = 0; $i < count($ARREMD); $i++) {
+				$API->write('/system/script/remove', false);
+				$API->write('=.id=' . $ARREMD[$i]['.id']);
+				$READ = $API->read();
 			}
 		} elseif (strlen($idbl) > "0") {
-			if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-				$API->write('/system/script/print', false);
-				$API->write('?owner=' . $idbl . '', false);
-				$API->write('=.proplist=.id');
-				$ARREMD = $API->read();
-				for ($i = 0; $i < count($ARREMD); $i++) {
-					$API->write('/system/script/remove', false);
-					$API->write('=.id=' . $ARREMD[$i]['.id']);
-					$READ = $API->read();
-
-				}
+			$remAll = dualOwnerQuery($API, $idbl, $_v6map);
+			foreach($remAll as $row) {
+				$API->comm('/system/script/remove', array('.id'=>$row['.id']));
 			}
-
 		}
 		echo "<script>window.location='./?report=selling&session=" . $session . "'</script>";
 	}
@@ -105,45 +99,26 @@ if (!isset($_SESSION["mikhmon"])) {
 		$fprefix = "";
 	}
 	if (strlen($idhr) > "0") {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-			$getData = $API->comm("/system/script/print", array(
-				"?source" => "$idhr",
-			));
-			$TotalReg = count($getData);
+		$getData = $API->comm("/system/script/print", array("?source" => "$idhr"));
+		if (empty($getData)) {
+			$getData = $API->comm("/system/script/print", array("?name" => "$idhr"));
 		}
+		$TotalReg = count($getData);
 		$filedownload = $idhr;
 		$shf = "hidden";
 		$shd = "inline-block";
 	} elseif (strlen($idbl) > "0") {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-			$getData = $API->comm("/system/script/print", array(
-				"?owner" => "$idbl",
-			));
-			$TotalReg = count($getData);
-		}
+		$getData = dualOwnerQuery($API, $idbl, $_v6map);
+		$TotalReg = count($getData);
 		$filedownload = $idbl;
 		$shf = "hidden";
 		$shd = "inline-block";
-	} elseif ($idhr == "" || $idbl == "") {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-			$getData = $API->comm("/system/script/print", array(
-				"?comment" => "mikhmon",
-			));
-			$TotalReg = count($getData);
-		}
+	} else {
+		$getData = $API->comm("/system/script/print", array("?comment" => "mikhmon"));
+		$TotalReg = count($getData);
 		$filedownload = "all";
 		$shf = "text";
 		$shd = "none";
-	} elseif (strlen($idbl) > "0" ) {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-			$getData = $API->comm("/system/script/print", array(
-				"?owner" => "$idbl",
-			));
-			$TotalReg = count($getData);
-		}
-		$filedownload = $idbl;
-		$shf = "hidden";
-		$shd = "inline-block";
 	}
 	
 }

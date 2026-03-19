@@ -2,8 +2,8 @@
 
 # ─── WAJIB TIDAK DI-COMMIT ───────────────────
 .env
-include/config.php
 .ratelimit
+.kiro/
 
 # ─── Docker ──────────────────────────────────
 docker-compose.override.yml

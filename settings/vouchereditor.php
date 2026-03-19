@@ -26,7 +26,8 @@ if (!isset($_SESSION["mikhmon"])) {
 	$session = $_GET['session'];
 
 // load config
-include('../include/config.php');
+include('../include/security.php');
+  include('../include/config.php');
 include('../include/readcfg.php');
 
 

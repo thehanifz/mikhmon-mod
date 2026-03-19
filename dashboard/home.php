@@ -77,7 +77,8 @@ if (!isset($_SESSION["mikhmon"])) {
 /*
 // get selling report
     $thisD = date("d");
-    $thisM = strtolower(date("M"));
+    $thisM_num = date("m"); // v7
+    $thisM = $thisM_num;
     $thisY = date("Y");
 
     if (strlen($thisD) == 1) {
@@ -250,18 +251,23 @@ if (!isset($_SESSION["mikhmon"])) {
                         url: './traffic/traffic.php?session='+session+'&iface='+iface,
                         datatype: "json",
                         success: function(data) {
-                          var midata = JSON.parse(data);
-                          if( midata.length > 0 ) {
-                            var TX=parseInt(midata[0].data);
-                            var RX=parseInt(midata[1].data);
-                            var x = (new Date()).getTime(); 
-                            shift=chart.series[0].data.length > 19;
-                            chart.series[0].addPoint([x, TX], true, shift);
-                            chart.series[1].addPoint([x, RX], true, shift);
+                          try {
+                            var midata = (typeof data === 'object') ? data : JSON.parse(data);
+                            if( midata.length > 0 ) {
+                              var TX=parseInt(midata[0].data);
+                              var RX=parseInt(midata[1].data);
+                              var x = (new Date()).getTime(); 
+                              shift=chart.series[0].data.length > 19;
+                              chart.series[0].addPoint([x, TX], true, shift);
+                              chart.series[1].addPoint([x, RX], true, shift);
+                            }
+                          } catch(e) {
+                            console.error("Traffic parse error:", e);
                           }
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                          console.error("Status: " + textStatus + " request: " + XMLHttpRequest); console.error("Error: " + errorThrown); 
+                          console.error("Status: " + textStatus + " request: " + XMLHttpRequest);
+                          console.error("Error: " + errorThrown);
                         }       
                       });
                     }	

@@ -86,7 +86,7 @@ function goBack() {
 <?php
 if (isset($_POST['nama'])) {
 	$name = ($_POST['nama']);
-	if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
+	if (true) {
 		$getuser = $API->comm("/ip/hotspot/user/print", array("?name" => "$name"));
 		$user = $getuser[0]['name'];
 		$profile = $getuser[0]['profile'];

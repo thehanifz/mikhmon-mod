@@ -26,16 +26,18 @@ $session = $_GET['session'];
 $interface = $_GET['iface'];
 //echo $interface
 // load config
-include('../include/config.php');
+  include_once('../lib/routeros_api.class.php');
+  include_once('../lib/formatbytesbites.php');
+include('../include/security.php');
+  include('../include/config.php');
 include('../include/readcfg.php');
 
 // routeros api
-include_once('../lib/routeros_api.class.php');
-include_once('../lib/formatbytesbites.php');
 $API = new RouterosAPI();
 $API->debug = false;
-  
-  if($API->connect( $iphost, $userhost, decrypt($passwdhost))){
+$API->connect($iphost, $userhost, $passwdhost);
+
+  if (true) {
 
 //$getinterface = $API->comm("/interface/print");
     //$interface = $getinterface[$iface-1]['name'];

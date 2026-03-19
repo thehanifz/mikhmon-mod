@@ -31,6 +31,8 @@ if (!isset($_SESSION["mikhmon"])) {
   $session = $_GET['session'];
 
 // load config
+  require('../lib/routeros_api.class.php');
+  include('../include/security.php');
   include('../include/config.php');
   include('../include/readcfg.php');
 
@@ -41,10 +43,9 @@ if (!isset($_SESSION["mikhmon"])) {
   $small = $_GET['small'];
   $userp = $_GET['user'];
 
-  require('../lib/routeros_api.class.php');
   $API = new RouterosAPI();
   $API->debug = false;
-  $API->connect($iphost, $userhost, decrypt($passwdhost));
+  // API already connected via index.php
 
   
 

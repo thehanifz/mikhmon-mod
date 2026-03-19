@@ -30,20 +30,20 @@ include('../include/lang.php');
 include('../lang/'.$langid.'.php');
 
 // load config
+  include_once('../lib/routeros_api.class.php');
+  include_once('../lib/formatbytesbites.php');
+  include('../include/security.php');
   include('../include/config.php');
   include('../include/readcfg.php');
 
 // routeros api
-  include_once('../lib/routeros_api.class.php');
-  include_once('../lib/formatbytesbites.php');
   $API = new RouterosAPI();
   $API->debug = false;
+  $API->connect($iphost, $userhost, $passwdhost);
 
 
 
   if ($load == "sysresource") {
-
-    $API->connect($iphost, $userhost, decrypt($passwdhost));
 
 // get MikroTik system clock
     $getclock = $API->comm("/system/clock/print");
@@ -113,7 +113,7 @@ include('../lang/'.$langid.'.php');
 <?php 
 } else if ($load == "hotspot") {
 
-  $API->connect($iphost, $userhost, decrypt($passwdhost));
+  // API already connected via index.php
 // get & counting hotspot users
   $countallusers = $API->comm("/ip/hotspot/user/print", array("count-only" => ""));
   if ($countallusers < 2) {
@@ -195,8 +195,6 @@ include('../lang/'.$langid.'.php');
 
 <?php 
 } else if ($load == "logs") {
-
-  $API->connect($iphost, $userhost, decrypt($passwdhost));
 
   // move hotspot log to disk
   $getlogging = $API->comm("/system/logging/print", array("?prefix" => "->", ));

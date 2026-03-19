@@ -32,15 +32,16 @@ include('../lang/'.$langid.'.php');
 
 
 // load config
+  include_once('../lib/routeros_api.class.php');
+  include_once('../lib/formatbytesbites.php');
+  include('../include/security.php');
   include('../include/config.php');
   include('../include/readcfg.php');
 
 // routeros api
-  include_once('../lib/routeros_api.class.php');
-  include_once('../lib/formatbytesbites.php');
   $API = new RouterosAPI();
   $API->debug = false;
-  $API->connect($iphost, $userhost, decrypt($passwdhost));
+  $API->connect($iphost, $userhost, $passwdhost);
 
   if ($livereport == "disable") {
     $logh = "457px";
@@ -48,54 +49,43 @@ include('../lang/'.$langid.'.php');
   } else {
     $logh = "350px";
     $lreport = "style='display:block;'";
-// get selling report
+// get selling report — v7: yyyy-mm-dd, owner yyyy-mm
     $thisD = date("d");
-    $thisM = strtolower(date("M"));
+    $thisM_num = date("m");  // angka 01-12
     $thisY = date("Y");
-
-    if (strlen($thisD) == 1) {
-      $thisD = "0" . $thisD;
-    } else {
-      $thisD = $thisD;
-    }
-
-    $idhr = $thisM . "/" . $thisD . "/" . $thisY;
-    $idbl = $thisM . $thisY;
+    $idhr = $thisY . "-" . $thisM_num . "-" . $thisD;  // v7: 2026-03-18
+    $idbl_v7 = $thisY . "-" . $thisM_num;               // v7: 2026-03
+    // v6 padanan untuk backward compat
+    $_v6map = [1=>'jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+    $idbl_v6 = ($_v6map[(int)$thisM_num] ?? '') . $thisY;  // v6: mar2026
 
     $_SESSION[$session.'idhr'] = $idhr;
 
-   /* $getSRHr = $API->comm("/system/script/print", array(
-      "?source" => "$idhr",
-    ));
-    $TotalRHr = count($getSRHr);
-    $_SESSION[$session.'totalHr'] = $TotalRHr;*/
-    $getSRBl = $API->comm("/system/script/print", array(
-      "?owner" => "$idbl",
-    ));
+    // Query owner kedua format, deduplicate
+    $getSRBl = [];
+    foreach ([$idbl_v7, $idbl_v6] as $_pat) {
+      $_res = $API->comm("/system/script/print", array("?owner" => "$_pat"));
+      foreach ($_res as $_row) {
+        $_dup = false;
+        foreach ($getSRBl as $_ex) { if (($_ex['.id']??'') === ($_row['.id']??'')) { $_dup=true; break; } }
+        if (!$_dup) $getSRBl[] = $_row;
+      }
+    }
     $TotalRBl = count($getSRBl);
     $_SESSION[$session.'totalBl'] = $TotalRBl;
-/*
-    for ($i = 0; $i < $TotalRHr; $i++) {
 
-      $tHr += explode("-|-", $getSRHr[$i]['name'])[3];
-
-    }*/
     foreach($getSRBl as $row){
-    
       if((explode("-|-", $row['name'])[0]) == $idhr){
          $tHr += explode("-|-", $row['name'])[3];
-         $TotalRHr += count((array)$row['source']); /*Modif line add (array) by github https://github.com/MasKawer*/
- 
+         $TotalRHr += count((array)$row['source']);
        }
        $tBl += explode("-|-", $row['name'])[3];
-
       if($TotalRHr == ""){
         $TotalRHr = "0";
         $_SESSION[$session.'totalHr'] = "0";
       }else{
         $_SESSION[$session.'totalHr'] = $TotalRHr;
       }
-      
     }
   }
 }
@@ -130,4 +120,3 @@ include('../lang/'.$langid.'.php');
               </div>
             </div>
             </div>
-            

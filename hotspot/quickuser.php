@@ -37,15 +37,16 @@ include('../lang/'.$langid.'.php');
 // quick bt
 include('../include/quickbt.php');
 // load config
-include('../include/config.php');
+  include_once('../lib/routeros_api.class.php');
+  include_once('../lib/formatbytesbites.php');
+include('../include/security.php');
+  include('../include/config.php');
 include('../include/readcfg.php');
 
 // routeros api
-include_once('../lib/routeros_api.class.php');
-include_once('../lib/formatbytesbites.php');
 $API = new RouterosAPI();
 $API->debug = false;
-$API->connect($iphost, $userhost, decrypt($passwdhost));
+$API->connect($iphost, $userhost, $passwdhost);
 	// get quick print
 $getquickprint = $API->comm("/system/script/print", array("?name" => "$quickprint"));
 
@@ -75,7 +76,7 @@ $getquickprint = $API->comm("/system/script/print", array("?name" => "$quickprin
 	$price = "";
   }
 
-		$commt = $usermode . "-" . rand(100, 999) . "-" . date("m.d.y") . "-" . $comment;
+		$commt = $usermode . "-" . rand(100, 999) . "-" . date("Y-m-d") . "-" . $comment; // v7: yyyy-mm-dd
 
 		$a = array("1" => "", "", 1, 2, 2, 3, 3, 4);
 

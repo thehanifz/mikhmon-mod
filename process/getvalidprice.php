@@ -39,7 +39,7 @@ include('../lang/'.$langid.'.php');
 
   $API = new RouterosAPI();
   $API->debug = false;
-  $API->connect($iphost, $userhost, decrypt($passwdhost));
+  // API already connected via index.php
 
   $uprofname = $_GET['name'];
   if ($uprofname != "") {

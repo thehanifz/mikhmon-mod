@@ -27,7 +27,10 @@ if (!isset($_SESSION["mikhmon"])) {
 	$serveractive = $_GET['server'];
 
 // load config
-	include('../include/config.php');
+	  include_once('../lib/routeros_api.class.php');
+  include_once('../lib/formatbytesbites.php');
+include('../include/security.php');
+  include('../include/config.php');
 	include('../include/readcfg.php');
 	
 // lang
@@ -35,11 +38,9 @@ if (!isset($_SESSION["mikhmon"])) {
   include('../lang/'.$langid.'.php');
 
 // routeros api
-	include_once('../lib/routeros_api.class.php');
-	include_once('../lib/formatbytesbites.php');
 	$API = new RouterosAPI();
 	$API->debug = false;
-	$API->connect($iphost, $userhost, decrypt($passwdhost));
+	$API->connect($iphost, $userhost, $passwdhost);
 
 	if ($serveractive != "") {
 		$gethotspotactive = $API->comm("/ip/hotspot/active/print", array("?server" => "" . $serveractive . ""));

@@ -26,15 +26,22 @@ $session = $_GET['session'];
 
 
 // load config
+  include('../include/security.php');
   include('../include/config.php');
   include('../include/readcfg.php');
 
 $idbl = $_GET['idbl'];
-$thisM = substr($idbl,0,3);
-$thisY = substr($idbl,-4);
-
 $ms = array(1 => "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec");
-$mn = array_search($thisM, $ms);
+// Support v6 (mar2026) dan v7 (2026-03)
+if (preg_match('/^(\d{4})-(\d{2})$/', $idbl, $_bm)) {
+  $thisY = $_bm[1];
+  $mn    = (int)$_bm[2];
+  $thisM = $ms[$mn] ?? '';
+} else {
+  $thisM = substr($idbl, 0, 3);
+  $thisY = substr($idbl, -4);
+  $mn    = array_search($thisM, $ms);
+}
 
 // https://secure.php.net/manual/en/function.cal-days-in-month.php#38666
 function days_in_month($month, $year) 
@@ -137,7 +144,8 @@ for ($i = 1; $i < $totD; $i++) {
         } else {
           $thisD = $i;
         }
-        $idhr = strtolower($thisM . '/' . $thisD . '/' . $thisY);
+        // idhr format sesuai data yang tersimpan
+        $idhr = date("Y") >= 2025 ? ($thisY . '-' . str_pad($mn,2,'0',STR_PAD_LEFT) . '-' . $thisD) : strtolower($thisM . '/' . $thisD . '/' . $thisY);
         if(explode("/",resume_per_day($idhr))[1] == ""){$r = 0;}else{$r = explode("/",resume_per_day($idhr))[1];}
         echo "['<b>".$thisD." " .ucfirst($thisM)." ".explode("/",resume_per_day($idhr))[0]."vcr</b>',".$r."],";
 }

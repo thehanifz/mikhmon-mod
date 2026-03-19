@@ -57,7 +57,7 @@ if (!isset($_SESSION["mikhmon"])) {
 
 	if (isset($remdata)) {
 		if (strlen($idhr) > "0") {
-			if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
+			if (true) {
 				$API->write('/system/script/print', false);
 				$API->write('?source=' . $idhr . '', false);
 				$API->write('=.proplist=.id');
@@ -70,7 +70,7 @@ if (!isset($_SESSION["mikhmon"])) {
 				}
 			}
 		} elseif (strlen($idbl) > "0") {
-			if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
+			if (true) {
 				$API->write('/system/script/print', false);
 				$API->write('?owner=' . $idbl . '', false);
 				$API->write('=.proplist=.id');
@@ -93,7 +93,7 @@ if (!isset($_SESSION["mikhmon"])) {
 		$fprefix = "";
 	}
 	if (strlen($idhr) > "0") {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
+		if (true) {
 			$getData = $API->comm("/system/script/print", array(
 				"?source" => "$idhr",
 			));
@@ -133,7 +133,7 @@ if (!isset($_SESSION["mikhmon"])) {
 		$shf = "hidden";
 		$shd = "inline-block";
 	} elseif ($idhr == "" || $idbl == "") {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
+		if (true) {
 			$getData = $API->comm("/system/script/print", array(
 				"?comment" => "mikhmon",
 			));
@@ -143,7 +143,7 @@ if (!isset($_SESSION["mikhmon"])) {
 		$shf = "text";
 		$shd = "none";
 	} elseif (strlen($idbl) > "0" ) {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
+		if (true) {
 			$getData = $API->comm("/system/script/print", array(
 				"?owner" => "$idbl",
 			));

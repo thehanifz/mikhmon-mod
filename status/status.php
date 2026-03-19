@@ -34,7 +34,7 @@ include_once('../lib/routeros_api.class.php');
 
 $API = new RouterosAPI();
 $API->debug = false;
-$API->connect( $iphost, $userhost, decrypt($passwdhost));
+// API already connected via index.php
 
 if($uname != ""){
 	$getname = $API->comm("/ip/hotspot/user/print", array("?name" => "$uname"));

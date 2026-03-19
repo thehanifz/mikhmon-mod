@@ -27,33 +27,36 @@ if (!isset($_SESSION["mikhmon"])) {
 	$remdata = ($_POST['remdata']);
 
 
+	$_v6map = [1=>'jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 	if (strlen($idhr) > "0") {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-			$API->write('/system/script/print', false);
-			$API->write('?=source=' . $idhr . '');
-			$ARRAY = $API->read();
-			$API->disconnect();
-		}
+		$ARRAY = $API->comm("/system/script/print", array("?source" => "$idhr"));
+		if (empty($ARRAY)) $ARRAY = $API->comm("/system/script/print", array("?name" => "$idhr"));
 		$filedownload = $idhr;
 		$shf = "hidden";
 		$shd = "text";
 	} elseif (strlen($idbl) > "0") {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-			$API->write('/system/script/print', false);
-			$API->write('?=owner=' . $idbl . '');
-			$ARRAY = $API->read();
-			$API->disconnect();
+		// Dual owner query v6+v7, exact match, deduplicate
+		if (preg_match('/^(\d{4})-(\d{2})$/', $idbl, $_mv)) {
+			$_pats = array_filter([$idbl, ($_v6map[(int)$_mv[2]]??'').$_mv[1]]);
+		} else {
+			$_fi = array_search(substr($idbl,0,3), $_v6map);
+			$_v7 = $_fi ? substr($idbl,3,4).'-'.str_pad($_fi,2,'0',STR_PAD_LEFT) : '';
+			$_pats = array_filter([$idbl, $_v7]);
+		}
+		$ARRAY = [];
+		foreach ($_pats as $_pat) {
+			$_res = $API->comm("/system/script/print", array("?owner" => "$_pat"));
+			foreach ($_res as $_row) {
+				$_dup=false;
+				foreach($ARRAY as $_ex){if(($_ex['.id']??'')==($_row['.id']??'')){$_dup=true;break;}}
+				if(!$_dup) $ARRAY[]=$_row;
+			}
 		}
 		$filedownload = $idbl;
 		$shf = "hidden";
 		$shd = "text";
-	} elseif ($idhr == "" || $idbl == "") {
-		if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-			$API->write('/system/script/print', false);
-			$API->write('?=comment=mikhmon');
-			$ARRAY = $API->read();
-			$API->disconnect();
-		}
+	} else {
+		$ARRAY = $API->comm("/system/script/print", array("?comment" => "mikhmon"));
 		$filedownload = "all";
 		$shf = "text";
 		$shd = "hidden";
